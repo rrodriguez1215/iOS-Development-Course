@@ -1,0 +1,36 @@
+import SwiftUI
+
+struct ContentView: View {
+    @State private var isBlue: Bool = true // State variable to toggle color
+
+    var body: some View {
+        ZStack {
+            // Background color based on the state variable
+            (isBlue ? Color.blue : Color.green)
+                .edgesIgnoringSafeArea(.all) // Fill the entire screen
+
+            VStack {
+                Text("Tap the Button to Change Color")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+
+                Button(action: {
+                    // Toggle the background color
+                    isBlue.toggle()
+                }) {
+                    Text("Change Color")
+                        .font(.title2)
+                        .padding()
+                        .background(Color.white)
+                        .foregroundColor(.blue)
+                        .cornerRadius(10)
+                }
+            }
+        }
+    }
+}
+
+#Preview {
+    ContentView()
+}
